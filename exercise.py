@@ -84,7 +84,10 @@ def check_voting_eligibility():
     while age < 0:
         age = int(input("You're no time traveller... how about your actual age? "))
 
-    print("Age check passed - get to the ballots!") if age >= voting_age else print("Maybe next time, buddy... how about some colouring instead?")
+    age_pass = "Age check passed - get to the ballots!"
+    age_fail = "Maybe next time, buddy... how about some colouring instead?"
+
+    print(age_pass) if age >= voting_age else print(age_fail)
 
 # Call the function
 check_voting_eligibility()
@@ -219,8 +222,6 @@ def determine_season():
 
     day = input("Nice, and the date as a number, please: ")
 
-    print(f"{day.upper()} - {day.lower()}")
-
     while not day.isdigit():
         day = input("Okay, let's make it a number this time: ")
 
@@ -230,6 +231,8 @@ def determine_season():
     while int(day) <= 0:
         day = input("The day has to be a positive value... Again, please? ")
     
+    day = int(day)
+
     if ((month == "Dec" and day >= 21) or month == "Jan" or month == "Feb" or (month == "Mar" and day <= 19)):
         season = "Winter"
     elif ((month == "Mar" and day >= 20) or month == "Apr" or month == "May" or (month == "Jun" and day <= 20)):
